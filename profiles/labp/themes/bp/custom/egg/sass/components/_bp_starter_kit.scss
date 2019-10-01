@@ -1,0 +1,35 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * bp_starter_kit component.
+ *
+ */
+
+/* Sub-component:  bp_starter_kit__key_points  */
+
+body.node-type-sbp-starter-kit .node-teaser {
+  background: #F7F7F7;
+  margin-bottom: 30px;
+
+ // need to go a div up.
+ @include window_size(tab-narrow-up) {
+  display: inline-block;
+  width: 49%;
+  }
+}
+
+/* Colors */
+.node-type-sbp-starter-kit {
+
+  .button--link {
+    background: $egg_starter;
+    a {
+      color: white
+    }
+
+  }
+  a {
+    color: $egg_starter;
+  }
+}

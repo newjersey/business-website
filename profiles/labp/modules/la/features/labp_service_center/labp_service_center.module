@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Service Center feature.
+ */
+
+include_once 'labp_service_center.features.inc';

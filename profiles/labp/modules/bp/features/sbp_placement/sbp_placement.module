@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+
+/**
+ * Implements hook_block_info().
+ */
+function sbp_placement_block_info() {
+  $blocks = array();
+  $blocks['footer'] = array(
+    'info' => t('Footer Block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function sbp_placement_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'footer':
+      $block['subject'] = NULL;
+      $block['content'] = array(
+        '#markup' => sbp_placement_block(),
+
+      );
+      break;
+  };
+  return $block;
+}
+
+
+function sbp_placement_block() {
+
+  return "Lovely block";
+
+}

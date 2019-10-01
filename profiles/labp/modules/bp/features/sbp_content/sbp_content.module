@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Business Portal Content feature.
+ */
+
+include_once 'sbp_content.features.inc';

@@ -1,0 +1,6 @@
+name = Business Portal Base
+description = Basic configurations and deployment for the Business Portal
+core = 7.x
+version = 7.x-1.0
+package = Small Business Portal
+features[features_api][] = api:2

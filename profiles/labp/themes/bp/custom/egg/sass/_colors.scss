@@ -1,0 +1,20 @@
+
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$grayscale: #888888;
+$grayscale_dark: rgb(49, 49, 49);
+$grayscale_light: rgb(230, 230, 230);
+$egg_starter: #00BED5;
+$sec1_light:  adjust-lightness($egg_starter, 50%);
+$egg_blue: #0D84E9;
+
+
+
+// wizard colors
+$background-register-your-business:#89D5C4;
+$background-your-business:#B5CF6E;
+$wizard-text:#0F2940;
+$wizard-hr:#0F2940;
+$wizard__button--deafult:#fff;
+$wizard__button--selected:#0F2940;
+$wizard__button_text--selected:#FFF;

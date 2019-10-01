@@ -1,0 +1,8 @@
+name = LABP Wizard Address Lookup
+description = Adds an ajax address lookup to the Address Lookup Wizard Screen.
+core = 7.x
+package = Los Angeles
+
+dependencies[] = sbp_wizard
+
+files[] = inc/address_form.inc

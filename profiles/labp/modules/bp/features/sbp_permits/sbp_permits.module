@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Business Portal Permits feature.
+ */
+
+include_once 'sbp_permits.features.inc';

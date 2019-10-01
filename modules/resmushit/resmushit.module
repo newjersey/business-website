@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Main file of the module.
+ */
+
+define("RESMUSHIT_TIMEOUT", 10);
+define("RESMUSHIT_LOG_SIZE", 20);
+define("RESMUSHIT_EFFECT_NAME", "reSmush.it (runs always as the last)");
+define("RESMUSHIT_API_URL", 'http://api.resmush.it/ws.php'); // See https://www.resmush.it/api
+
+/**
+ * Load the necessary include files.
+ * 20171010 Using require_once() because module_load_include() kept throwing "Warning: call_user_func_array() expects parameter 1 to be a valid callback, function 'resmushit_dashboard' not found or invalid function name in call_user_func_array() ..." It may have been related to our use of hook_exit().
+ */
+require_once dirname(__FILE__).'/resmushit.inc';
+require_once dirname(__FILE__).'/resmushit_settings.inc';
+
+/**
+ * Menu for this module.
+ * @return array An array with this module's settings.
+ */
+function resmushit_menu() {
+  $items = array();
+
+  $items['admin/config/media/resmushit'] = array(
+    'title' => 'reSmush.it',
+    'description' => 'Settings for the reSmush.it image style effect',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('resmushit_admin'),
+    'access arguments' => array('administer resmushit'),
+    // 'type' => MENU_NORMAL_ITEM,  // Not necessary since this is the default.
+    'weight' => 0,
+  );
+
+  // For the default local task, we need very little configuration, as the callback and other conditions are handled by the parent callback.
+  $items['admin/config/media/resmushit/settings'] = array(
+    'title' => 'Settings',
+    // 'description' => 'General settings',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  $items['admin/config/media/resmushit/dashboard'] = array(
+    'title' => 'Dashboard',
+    'description' => 'Information relevant to the reSmush.it module activity on this site.',
+    'page callback' => 'resmushit_dashboard',
+    'access arguments' => array('administer resmushit'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+
+  // A shortcut to the permissions settings for this module.
+  $items['admin/config/media/resmushit/permissions'] = array(
+    'title' => 'Permissions',
+    'description' => 'Configure access permissions',
+    'page callback' => 'resmushit_perms',
+    'access arguments' => array('administer resmushit'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 5,
+  );
+
+  return $items;
+}
+
+/**
+ * Redirect to the module's permission settings. A callback from hook_menu().
+ */
+function resmushit_perms() {
+  drupal_goto('admin/people/permissions', array('fragment' => 'module-resmushit'));
+}
+
+/**
+ * Valid permissions for this module
+ * @return array An array of valid permissions for the module
+ */
+function resmushit_permission() {
+  return array(
+    'administer resmushit' => array(
+      'title' => t('Administer reSmush.it'),
+      'description' => t('Set roles that may access the settings of reSmush.it.'),
+    ),
+  );
+}
+
+/**
+ * Display help and module information
+ * Implements hook_help().
+ * @param path which path of the site we're displaying help
+ * @param arg array that holds the current path as would be returned from arg() function
+ * @return help text for the path
+ */
+function resmushit_help($path, $arg) {
+  if ($path == 'admin/help#resmushit') {
+    $output = file_get_contents(drupal_get_path('module', 'resmushit') . '/README.txt');
+    return nl2br($output);
+  }
+}

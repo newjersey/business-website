@@ -1,0 +1,63 @@
+name = LA Business Portal
+description = A portal for businesses in the Los Angeles area.
+core = 7.x
+distribution_name = LABP
+project = "labp"
+
+; Core
+dependencies[] = list
+dependencies[] = number
+dependencies[] = options
+dependencies[] = text
+dependencies[] = color
+dependencies[] = syslog
+
+; Contrib
+dependencies[] = email
+dependencies[] = menu_block
+dependencies[] = ctools_custom_content
+dependencies[] = googleanalytics
+dependencies[] = environment
+dependencies[] = taxonomy_access_fix
+
+; Lightning
+;dependencies[] = assemble
+dependencies[] = lightning_blocks
+dependencies[] = lightning_fpp
+dependencies[] = lightning_metatags
+dependencies[] = lightning_panels
+dependencies[] = lightning_rules
+dependencies[] = curate
+
+; BP custom modules
+dependencies[] = sbp_content
+dependencies[] = sbp_department
+dependencies[] = sbp_document
+dependencies[] = sbp_faq
+dependencies[] = sbp_field_base
+dependencies[] = sbp_guide
+dependencies[] = sbp_hero
+dependencies[] = sbp_incentives
+dependencies[] = sbp_landing_page
+dependencies[] = sbp_lexicon
+dependencies[] = sbp_menu
+;dependencies[] = sbp_migrate
+dependencies[] = sbp_online_resource
+dependencies[] = sbp_page
+dependencies[] = sbp_panels
+dependencies[] = sbp_permits
+dependencies[] = sbp_resources_incentives
+dependencies[] = sbp_search
+dependencies[] = sbp_starter_kit
+dependencies[] = sbp_taxonomy
+dependencies[] = sbp_terms_definitions
+dependencies[] = sbp_views
+dependencies[] = sbp_wizard
+
+; LA Specific contrib Modules
+; dependencies[] = acsf
+
+; LA custom modules
+dependencies[] = labp_service_center
+dependencies[] = labp_environment
+dependencies[] = labp_users

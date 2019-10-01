@@ -1,0 +1,13 @@
+name = Lightning Lite
+description = Integrates the Lite track changes plugin for CKEditor with Lightning.
+package = User interface
+core = 7.x
+
+dependencies[] = lite
+
+; Information added by Drupal.org packaging script on 2017-07-05
+version = "7.x-1.0"
+core = "7.x"
+project = "lightning_features"
+datestamp = "1499277249"
+

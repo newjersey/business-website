@@ -1,0 +1,21 @@
+.wizard__nav {
+  display: inline-block;
+  width: 70%;
+  float: left;
+}
+.wizard__arrow-up {
+  background-image: image-url("arrow_up.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: 0 10px 0 24px;
+  width: 24px;
+  height: 25px;
+}
+.wizard__arrow-down--filled {
+  background-image: image-url("arrow_down_filled.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 320px;
+  height: 94px;
+  margin-top: 5px;
+}

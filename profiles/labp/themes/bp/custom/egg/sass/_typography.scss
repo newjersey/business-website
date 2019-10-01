@@ -1,0 +1,15 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ *
+ */
+
+.pane-node-field-subtitle {
+  @include adjust-font-size-to( $h2-font-size );
+}
+
+
+.intro-text .field-item {
+  @include adjust-font-size-to( $h2-font-size );
+}

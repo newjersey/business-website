@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SBP Document feature.
+ */
+
+include_once 'sbp_document.features.inc';

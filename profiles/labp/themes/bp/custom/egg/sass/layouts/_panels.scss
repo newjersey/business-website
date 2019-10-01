@@ -1,0 +1,57 @@
+/**
+ * @file
+ *
+ * General panels theming.
+ *
+ */
+
+.panel-2col-stacked .panel-col-top {
+  background: $sec1_light;
+  color: $grayscale_dark;
+  .outer {
+    margin: 0 auto 0 auto;
+    max-width: 1074px;
+    .inside {
+      padding: 20px;
+    }
+    @media all and (min-width: 720px) {
+      .inside {
+        padding: 8% 5% 8% calc(25% + 20px);
+      }
+    }
+  }
+}
+
+.panel-2col-stacked {
+  .center-wrapper {
+    margin: 0 auto 0 auto;
+    max-width: 1074px;
+  }
+}
+
+.panel-2col-stacked .panel-col-first {
+  width: 25%;
+  @media all and (max-width: 720px) {
+    float: none;
+    width: 100%;
+  }
+}
+
+.panel-2col-stacked .panel-col-last {
+  width: 75%;
+  @media all and (max-width: 720px) {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Flexible panel */
+.panels-flexible-region-2-center {
+  width: 100%;
+  > .inside > .panel-pane:not(.pane-node-field-image) {
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  margin: 0 auto 40px auto;
+}

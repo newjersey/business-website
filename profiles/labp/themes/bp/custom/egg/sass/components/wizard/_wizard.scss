@@ -1,0 +1,87 @@
+$wizard_left_margin:25px;
+
+.wizard {
+  color: $wizard-text;
+  font-family: Roboto, sans-serif;;
+}
+.wizard__intro-screen--register-business {
+  background-color: $background-register-your-business;
+  height: 900px;
+}
+.wizard__content-block {
+  display: inline-block;
+  border: 0 solid black;
+  width: 70%;
+  padding: 25px;
+}
+.wizard__header {
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0;
+  margin: 0 0 15px;
+}
+.wizard__header--intro {
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 0;
+  padding: 0;
+  margin: 0 0 15px;
+}
+.wizard__header-line {
+  height: 4px;
+  max-width: 80px;
+  background: $wizard-hr;
+  display: block;
+  border: 0 none;
+  margin: 0;
+}
+.wizard__question {
+  font-family: Merriweather, serif;;
+  font-weight: 400;
+  font-size: 1.667em;
+  @include breakpoint($medium-screen) {
+    font-size: 3em;
+  }
+  @include breakpoint($large-screen-and-up) {
+    font-size: 4em;
+  }
+}
+.wizard__buttons {
+  border: 0 solid white;
+}
+.wizard__button {
+  background-color: white;
+  padding: 8px 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+.wizard__button {
+  @include wizard__button--base;
+}
+.wizard__button a {
+  color: $wizard_text;
+  text-decoration: none;
+}
+.wizard__button--selected {
+  @include wizard__button--base;
+  background-color: $wizard__button--selected;
+}
+.wizard__button--selected a {
+  text-decoration: none;
+  color: $wizard__button_text--selected;
+}
+.wizard__tip {
+  font-size: 1.083em;
+  @include breakpoint($medium-screen) {
+    font-size: 1.333em;
+  }
+  @include breakpoint($large-screen-and-up) {
+    font-size: 1.5em;
+  }
+}
+.wizard__intro-screen--name-business {}

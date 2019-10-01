@@ -1,0 +1,358 @@
+<?php
+
+/**
+ * Perform starter kit prototype cleanup.
+ */
+function sbp_base_install() {
+  // Enable starter kit depencency.
+  drupal_set_message('Enabling new dependency for starter kit');
+  module_enable(array('text_hierarchical'));
+
+  drupal_set_message('Reverting feature modules');
+  // Revert specific feature modules.
+  features_revert_module('sbp_field_base');
+  features_revert_module('sbp_starter_kit');
+  features_revert_module('sbp_panels');
+  features_revert_module('sbp_resources_incentives');
+
+  drupal_set_message('Disabling unused modules');
+  // Disable feature modules.
+  module_disable(array('sbp_content'));
+  module_disable(array('sbp_guide'));
+  module_disable(array('sbp_permits'));
+
+  drupal_set_message('Deleting old field instances');
+  // Delete unneeded field instances.
+  if ($instance = field_info_instance('node', 'body', 'sbp_starter_kit')) {
+    field_delete_instance($instance, TRUE);
+  }
+
+  if ($instance = field_info_instance('node', 'field_featured_resources', 'sbp_starter_kit')) {
+    field_delete_instance($instance, TRUE);
+  }
+
+  if ($instance = field_info_instance('node', 'field_document', 'sbp_starter_kit')) {
+    field_delete_instance($instance, TRUE);
+  }
+
+  drupal_set_message('Deleting old field bases');
+  // Delete unneeded field bases.
+  field_delete_field('field_guides');
+  field_delete_field('field_starter_kit_key_points');
+  field_delete_field('field_related_documents');
+  field_delete_field('field_related_permits');
+
+  // Delete unneeded field collections.
+
+  drupal_set_message('Deleting old content types and their nodes');
+  // Delete unneeded content types and nodes.
+  $types = array(
+    'sbp_content',
+    'sbp_guide',
+    'sbp_permits',
+  );
+  foreach($types as $type) {
+    // First, delete nodes
+    $results = db_select('node', 'n')
+      ->fields('n', array('nid'))
+      ->condition('type', $type)
+      ->execute();
+    foreach ($results as $result) {
+      $nids[] = $result->nid;
+    }
+    if (!empty($nids)) {
+      node_delete_multiple($nids);
+      drupal_set_message(t('%count nodes has been deleted.', array('%count' => count($nids))));
+    }
+    // Then, delete content type
+    if (node_type_load($type)) {
+      node_type_delete($type);
+      variable_del('node_preview_' . $type);
+      drupal_set_message(t('%type content type has been deleted.', array('%type' => $type)));
+    }
+  }
+  node_types_rebuild();
+}
+
+/**
+ * Updating WYSIWYG styles.
+ */
+function sbp_base_update_7001() {
+  module_disable(array('lightning_wysiwyg'));
+  module_enable(array('sbp_wysiwyg'));
+}
+
+/**
+ * Updating field bases and new widgets.
+ */
+function sbp_base_update_7002() {
+  drupal_set_message('Removing lightning filter which conflicts with SBP WYSIWYG.');
+  module_disable(array('lightning_filter'));
+
+  drupal_set_message('Removing rogue field that was created in error on prod.');
+  field_delete_field('field_introductory_title');
+
+  drupal_set_message('Adding newest widget fields.');
+  features_revert_module('sbp_field_base');
+  features_revert_module('sbp_panels');
+  features_revert_module('sbp_wizard');
+  drupal_set_message('Restoring CTA 1 on wizard roadmap.');
+  $query = 'INSERT INTO `field_data_field_button_links` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'236\',\'276\',\'und\',\'0\',\'https://latax.lacity.org/oofweb/eappreg/eappreg_criteria.cfm\',\'Apply\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'271\',\'311\',\'und\',\'0\',\'https://latax.lacity.org/oofweb/eappreg/eappreg_criteria.cfm\',\'Apply\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'281\',\'321\',\'und\',\'0\',\'https://sa.www4.irs.gov/modiein/individual/index.jsp\',\'Apply\',\'a:1:{s:6:"target";i:0;}\'),(\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://www.lavote.net/home/county-clerk/fictitious-business-names/filing/fictitious-business-name-search\',\'Check availability\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'311\',\'351\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'316\',\'356\',\'und\',\'0\',\'http://www.sos.ca.gov/business-programs/business-entities/forms#llc\',\'Learn more\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'326\',\'366\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'336\',\'376\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+  $query = 'INSERT INTO `field_revision_field_button_links` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'236\',\'276\',\'und\',\'0\',\'https://latax.lacity.org/oofweb/eappreg/eappreg_criteria.cfm\',\'Apply\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'271\',\'311\',\'und\',\'0\',\'https://latax.lacity.org/oofweb/eappreg/eappreg_criteria.cfm\',\'Apply\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'281\',\'321\',\'und\',\'0\',\'https://sa.www4.irs.gov/modiein/individual/index.jsp\',\'Apply\',\'a:1:{s:6:"target";i:0;}\'),(\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://www.lavote.net/home/county-clerk/fictitious-business-names/filing/fictitious-business-name-search\',\'Check availability\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'311\',\'351\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'316\',\'356\',\'und\',\'0\',\'http://www.sos.ca.gov/business-programs/business-entities/forms#llc\',\'Learn more\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'326\',\'366\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\'),(\'field_collection_item\',\'field_button\',\'0\',\'336\',\'376\',\'und\',\'0\',\'http://www.boe.ca.gov/elecsrv/esrvcont.htm\',\'Register\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+
+  drupal_set_message('Restoring CTA 2 on wizard roadmap.');
+  $query = 'INSERT INTO `field_data_field_cta_link_2` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://apps.lavote.net/obfr/bfrmain.aspx\',\'Register name\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+  $query = 'INSERT INTO `field_revision_field_cta_link_2` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://apps.lavote.net/obfr/bfrmain.aspx\',\'Register name\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+
+  drupal_set_message('Restoring CTA 3 on wizard roadmap.');
+  $query = 'INSERT INTO `field_data_field_cta_link_3` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://www.lavote.net/home/county-clerk/fictitious-business-names/publication\',\'Advertise your name\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+  $query = 'INSERT INTO `field_revision_field_cta_link_3` VALUES (\'field_collection_item\',\'field_button\',\'0\',\'301\',\'341\',\'und\',\'0\',\'https://www.lavote.net/home/county-clerk/fictitious-business-names/publication\',\'Advertise your name\',\'a:1:{s:6:"target";s:6:"_blank";}\')';
+  db_query($query);
+
+  drupal_set_message('Fixing field group overrides for features.');
+  module_enable('field_group_features');
+  drupal_set_message('Reverting service center field group.');
+  features_revert_module('labp_service_center');
+}
+
+/**
+ * Updating new WYSIWYG style for small text.
+ */
+function sbp_base_update_7003() {
+  drupal_set_message('Reverting the sbp_wysiwyg feature.');
+  features_revert_module('sbp_wysiwyg');
+}
+
+/**
+ * Updating new field config for new widgets in LA-350.
+ */
+function sbp_base_update_7004() {
+  drupal_set_message('Reverting the field base features.');
+  features_revert_module('sbp_field_base');
+}
+
+/**
+ * Reverting service centers.
+ */
+function sbp_base_update_7005() {
+  drupal_set_message('Reverting the labp service center feature.');
+  features_revert_module('labp_service_center');
+}
+
+/**
+ * Timeline widget.
+ */
+function sbp_base_update_7006() {
+  drupal_set_message('Reverting field base.');
+  features_revert_module('sbp_field_base');
+  drupal_set_message('Reverting panels.');
+  features_revert_module('sbp_panels');
+}
+
+/**
+ * Updating perms for new widgets.
+ */
+function sbp_base_update_7007() {
+  drupal_set_message('Reverting user perms.');
+  features_revert_module('labp_users');
+}
+
+/**
+ * Adding multi subs module for acquia search.
+ */
+function sbp_base_update_7008() {
+  drupal_set_message('Enabling multi subs.');
+  module_enable(array('acquia_search_multi_subs'));
+}
+
+/**
+ * Adding sponsors.
+ */
+function sbp_base_update_7009() {
+
+  drupal_set_message('Enabling nodequeue.');
+  module_enable(array('nodequeue', 'fe_nodequeue'));
+
+  drupal_set_message('Reverting field base.');
+  features_revert_module('sbp_field_base');
+
+  drupal_set_message('Reverting user perms.');
+  features_revert_module('labp_users');
+
+  drupal_set_message('Enabling sponsors feature.');
+  module_enable(array('sbp_sponsors'));
+}
+
+/**
+ * Enabling twitter block.
+ */
+function sbp_base_update_7010() {
+  drupal_set_message('Enabling twitter block.');
+  module_enable(array('twitter_block'));
+}
+
+/**
+ * Cardinality on business need field for resources.
+ */
+function sbp_base_update_7011() {
+  drupal_set_message('Reverting resources and field base.');
+  features_revert_module('sbp_field_base');
+  features_revert_module('sbp_online_resource');
+}
+
+/**
+ * Moving banner image from fpp to field collection of fpp.
+ */
+function sbp_base_update_7012() {
+  drupal_set_message('Reverting panels and deleting old field instance.');
+  $instance = field_info_instance('fieldable_panels_pane', 'field_banner_image', 'timeline');
+  field_delete_instance($instance);
+  features_revert_module('sbp_panels');
+}
+
+/**
+ * Updating perms for sponsors.
+ */
+function sbp_base_update_7013() {
+  drupal_set_message('Reverting user perms.');
+  features_revert_module('labp_users');
+  drupal_set_message('Reverting starter kit.');
+  features_revert_module('sbp_starter_kit');
+}
+
+/**
+ * Reverting SBP sponsors feature.
+ */
+function sbp_base_update_7014() {
+  drupal_set_message('Reverting the sbp sponsors feature.');
+  features_revert_module('sbp_sponsors');
+}
+
+
+/**
+ * Reverting SBP sponsors feature.
+ */
+function sbp_base_update_7015() {
+  drupal_set_message('Reverting the sbp panels feature for gen content fix.');
+  features_revert_module('sbp_panels');
+}
+
+/**
+ * Enabling SBP search feature.
+ */
+function sbp_base_update_7016() {
+  drupal_set_message('Enabling search feature.');
+  module_enable(array('sbp_search'));
+}
+
+
+/**
+ * Enabling SBP translate feature.
+ */
+function sbp_base_update_7017() {
+  drupal_set_message('Enabling translation feature.');
+  module_enable(array('sbp_translation'));
+}
+
+
+/**
+ * Enabling LABP calendar feature.
+ */
+function sbp_base_update_7018() {
+  drupal_set_message('Enabling calendar feature and perms update.');
+  module_enable(array('labp_calendar'));
+  features_revert_module('labp_users');
+}
+
+/**
+ * FAQ permissions.
+ */
+function sbp_base_update_7019() {
+  drupal_set_message('FAQ updates.');
+  module_enable(array('views_accordion'));
+  features_revert_module('sbp_faq');
+  features_revert_module('sbp_views');
+  features_revert_module('labp_users');
+}
+
+/**
+ * Search fix.
+ */
+function sbp_base_update_7020() {
+  drupal_set_message('Search updates.');
+  features_revert_module('sbp_search');
+}
+
+/**
+ * Adding Alt text to images.
+ */
+function sbp_base_update_7021() {
+  drupal_set_message('Enabling alt text for images.');
+  features_revert_module('sbp_hero');
+  features_revert_module('sbp_panels');
+  features_revert_module('sbp_wizard');
+}
+
+/**
+ * Calendar revert.
+ */
+function sbp_base_update_7022() {
+  drupal_set_message('Calendar updates.');
+  features_revert_module('labp_calendar');
+}
+
+/**
+ * LA-426.
+ */
+function sbp_base_update_7023() {
+  drupal_set_message('Removing line separator in GC widget.');
+  field_delete_field('field_line_separator');
+
+  drupal_set_message('Cleaning up features.');
+  features_revert_module('sbp_field_base');
+  features_revert_module('sbp_panels');
+}
+
+/**
+ * LA-426.
+ */
+function sbp_base_update_7024() {
+  drupal_set_message('Deleting hero fieldable panel pane type.');
+  features_revert_module('sbp_hero');
+
+  drupal_set_message('Cache clear.');
+  cache_clear_all();
+}
+
+/**
+ * LA-411.
+ */
+function sbp_base_update_7025() {
+  drupal_set_message('Removing banner image in timeline widget.');
+  field_delete_field('field_banner_image');
+
+  drupal_set_message('Cleaning up features.');
+  features_revert_module('sbp_field_base');
+  features_revert_module('sbp_panels');
+}
+
+/**
+ * LA-399.
+ */
+function sbp_base_update_7026() {
+  drupal_set_message('Cleaning up features.');
+  features_revert_module('sbp_starter_kit');
+}
+
+/**
+ * Bug with media modal with editor role.
+ */
+function sbp_base_update_7027() {
+  drupal_set_message('Rebuilding permissions.');
+  features_revert_module('labp_users');
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the LABP Calendar feature.
+ */
+
+include_once 'labp_calendar.features.inc';

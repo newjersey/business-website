@@ -1,0 +1,17 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * footer component.
+ *
+ */
+
+
+#footer {
+  color: $white;
+  font-size: 90%;
+  background: $grayscale_dark;
+  a {
+    color: $grayscale;
+  }
+}

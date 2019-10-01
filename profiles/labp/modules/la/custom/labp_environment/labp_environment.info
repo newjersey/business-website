@@ -1,0 +1,5 @@
+name = LABP Environment Module
+description = Provides environment specific settings.
+package = Los Angeles
+core = 7.x
+dependencies[] = googleanalytics

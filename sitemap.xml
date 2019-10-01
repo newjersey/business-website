@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/create-business-plan</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/choose-business-structure</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/choose-location</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/finance-your-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/building-permits-and-ada-compliance</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/buy-existing-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/hire-employees</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/business-resources</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/starter-kits</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/register-your-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/manage</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/manage/key-dates-and-deadlines</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/manage/business-preparedness</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/manage/managing-employees</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/manage/closing-your-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/grow</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/grow/market-your-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/grow/open-another-location</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/contact-us</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/plan/business-resources/business-action-center</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/terms</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/license</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/c-corporation</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/limited-liability-company</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/partnership</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/s-corporation</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/sole-proprietorship</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/find-a-location</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/home-based-business</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/building-and-inspections</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/grow/contract-state</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/ada-compliance</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/reporting-and-tax-requirements</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/worksource-centers</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/auto-body-repair</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/employment-agency</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/home-improvement-contractor</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/home-health-aid</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/mobile-food-vending</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/non-medical-transport</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/e-commerce</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/starter-kits/restaurant</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/EIN</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/state-payroll-taxes</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/sellers-permit</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/start/BTRC</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://njbfs-dev-svc.azurewebsites.net/understanding-zoning</loc>
+  <lastmod>2019-08-12T17:40:55+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

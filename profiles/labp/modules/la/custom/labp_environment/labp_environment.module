@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function labp_environment_init() {
+  // Change settings by environment.
+  switch ($_SERVER['SERVER_NAME']) {
+    case 'business.lacity.org':
+    case 'labp.cityofla.acsitefactory.com/':
+      variable_set('googleanalytics_account', 'UA-77528006-4');
+      break;
+    case 'labusinessportal.dev2-cityofla.acsitefactory.com':
+      variable_set('googleanalytics_account', 'UA-77528006-5');
+      break;
+  }
+}

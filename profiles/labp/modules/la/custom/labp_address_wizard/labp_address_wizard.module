@@ -1,0 +1,57 @@
+<?php
+/**
+ * @file
+ * labp_address_wizard.module
+ * 
+ * Adds Neighborhood Info address lookup to Wizard.
+ */
+
+include_once 'inc/address_form.inc';
+
+/** 
+ * Impliments hook_menu()
+ * 
+ * Adds an address lookup callback
+ */
+
+function labp_address_wizard_menu(){
+  $items['labp/address-lookup/%'] = array(
+    'title' => 'Address Lookup Callback',
+    'page callback' => 'la_neighborhoodinfo_callback',
+    'page arguments' => array(2),
+    'access arguments' => array('access content'),
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Neighborhood Info Callback
+ * Passes address to Neighborhood Info and returns page content
+ * 
+ * @param type $address
+ * @return type
+ */
+function la_neighborhoodinfo_callback($address){
+  $base_url = 'http://neighborhoodinfo.lacity.org/index.cfm';
+  $data = array(
+    'fuseaction' => 'processAddress',
+    'streetAddress' => $address
+  );
+  $query = '?' . http_build_query($data);
+  $path = $base_url . $query;
+  $result = file_get_contents($path);
+  $inLA = la_neighborhoodinfo_check($result);
+  print drupal_json_output(array('inLA' => $inLA));
+  exit();
+}
+
+
+function la_neighborhoodinfo_check($result){  
+  if(strpos( $result , '<div id="resultBox">')){
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
