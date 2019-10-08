@@ -184,15 +184,13 @@ $sidebar_second = render($page['sidebar_second']);
     <ul>
       <li><a href="/contact-us" title="Contact Us">Contact Us</a></li>
       <li><a href="/terms" title="Terms and Privacy Policy">Terms and Privacy Policy</a></li>
-      <li><a href="/license" title="License">License</a></li>
-      <li><a href="https://intercom.help/nj-business" title="FAQ" target="_blank">FAQ</a></li>
     </ul>
   </div>
 
   <div style="flex: 1.25">
     <span style="color: #999; font-size: 1.1em">Made with ❤️by the Office of Innovation</span>
     <br />
-    <a href="#">Powered by Open Source</a>
+    <a href="/license" title="Open Source">Powered by Open Source</a>
   </div>
 
   <div>
