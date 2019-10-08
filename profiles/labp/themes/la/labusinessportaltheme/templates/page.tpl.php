@@ -154,6 +154,12 @@ $sidebar_second = render($page['sidebar_second']);
     font-weight: bold;
   }
 
+  footer a.cio {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration-line: underline;
+  }
+
   footer li {
     list-style: none;
     display: inline-block;
@@ -173,7 +179,7 @@ $sidebar_second = render($page['sidebar_second']);
     footer > div:last-child {
       text-align: right;
       position: relative;
-      right: 6em;
+      right: 5.5em;
     }
   }
 </style>
@@ -188,7 +194,7 @@ $sidebar_second = render($page['sidebar_second']);
   </div>
 
   <div style="flex: 1.25">
-    <span style="color: #999; font-size: 1.1em">Made with ❤️by the Office of Innovation</span>
+    <span style="color: #999; font-size: 1.1em">Made with ❤️by the <a href="https://innovation.nj.gov" class="cio">Office of Innovation</a></span>
     <br />
     <a href="/license" title="Open Source">Powered by Open Source</a>
   </div>
