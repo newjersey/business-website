@@ -194,7 +194,7 @@ $sidebar_second = render($page['sidebar_second']);
   </div>
 
   <div style="flex: 1.25">
-    <span style="color: #999; font-size: 1.1em">Made with ❤️by the <a href="https://innovation.nj.gov" class="cio">Office of Innovation</a></span>
+    <span style="color: #999; font-size: 1.1em">Made with ❤️ by the <a href="https://innovation.nj.gov" class="cio">Office of Innovation</a></span>
     <br />
     <a href="/license" title="Open Source">Powered by Open Source</a>
   </div>
