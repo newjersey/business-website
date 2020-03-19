@@ -21,7 +21,7 @@ $sidebar_second = render($page['sidebar_second']);
 
 <div id="page">
   <div id="alpha_notice">
-    <div>An official website of the State of New Jersey. The site is in beta and a work in progress. <a href="http://business.nj.gov/feedback">Let us know what you think.</a></div>
+    <div>COVID-19/coronavirus information for businesses is available. Please visit <a href="https://cv.business.nj.gov">cv.business.nj.gov</a></div>
   </div>
   <div id="mean-menu--mobile">
     <!-- Mobile Menu gets attached here -->
